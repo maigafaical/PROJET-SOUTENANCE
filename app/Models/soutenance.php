@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class soutenance extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'date',
+        'heure',
+        'statut',
+        'juries',
+        'salles',
+        'demandes',
+        'users',
+    ];
 }
+
