@@ -1,6 +1,8 @@
 @extends('layouts.mainlayouts')
 
 @section('contenu')
+
+
 <section class="section">
     <div>
 
@@ -10,7 +12,6 @@
     </div>
     @endif
 
-    <section class="section">
     <div class="row">
       <div class="col-lg-12">
 
@@ -24,29 +25,26 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Heure</th>
-                  <th scope="col">Statut</th>
-                  <th scope="col">Juries</th>
-                  <th scope="col">Salles</th>
-                  <th scope="col">Demandes</th>
-                  <th scope="col">Users</th>
+                  <th scope="col">Libelle</th>
+                  <th scope="col">Enseignant</th>
+                  <th scope="col">L'utilisateur</th>
+                  <th scope="col">Maitre de stage</th>
+                  <th scope="col">President du jury</th>
+                  <th scope="col">Directeur de memoire</th>
                   <th scope="col">Actions </th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ( $soutenances as $sout )
-
+                @foreach ( $juries as $jur )
                 <tr>
-                  <td>{{ $sout->id }}</td>
-                  <td>{{ $sout->date }}</td>
-                  <td>{{ $sout->heure }}</td>
-                  <td>{{ $sout->statut }}</td>
-                  <td>{{ $sout->juries }}</td>
-                  <td>{{ $sout->salle }}</td>
-                  <td>{{ $sout->demandes }}</td>
-                  <td>{{ $sout->users }}</td>
-                  <td>
+                    <td>{{ $jur->id }}</td>
+                    <td>{{ $jur->libelle }}</td>
+                    <td>{{ $jur->enseignants_id }}</td>
+                    <td>{{ $jur->users_id }}</td>
+                    <td>{{ $jur->maitre_stage_id }}</td>
+                    <td>{{ $jur->presidents_id }}</td>
+                    <td>{{ $jur->directeur_memoires_id }}</td>
+                    <td>
                     <a href="#" class="btn btn-info">Modifier</a>
                     <a href="#" class="btn btn-danger">supprimer</a>
                   </td>

@@ -8,7 +8,7 @@
 <section class="section">
   <div>
 
-    @if (session('status'))
+@if (session('status'))
 <div class="alert alert-success">
 {{session('status')}}
 </div>
@@ -54,7 +54,7 @@
                   </td>
                 </tr>
                 @endforeach
-                
+
 
               </tbody>
             </table>

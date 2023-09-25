@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\soutenance;
 
 class SoutenanceController extends Controller
 {
@@ -12,7 +13,8 @@ class SoutenanceController extends Controller
      */
     public function index()
     {
-        return view('Soutenances.liste');
+        $soutenances = soutenance::all();
+        return view('Soutenances.liste' , compact('soutenances'));
     }
 
     /**
@@ -28,8 +30,32 @@ class SoutenanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'date'=>'required',
+            'heure'=>'required',
+            'statut'=>'required',
+            'juries'=>'required',
+            'salles'=>'required',
+            'users'=>'required',
+
+
+        ]);
+
+        $soutenances = new soutenance();
+        $soutenances->date = $request->date;
+        $soutenances->heure = $request->heure;
+        $soutenances->statut = $request->statut ;
+        $soutenances->juries= $request->juries ;
+        $soutenances->salles = $request->salles;
+        $soutenances->users= $request->users;
+
+
+        $Soutenances->save();
+
+        return redirect('Soutenances.liste')->with('status', 'Soutenance a  été ajouté avec succes.');
     }
+
 
     /**
      * Display the specified resource.
