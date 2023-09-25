@@ -30,7 +30,7 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
 
             'nom'=>'required',
@@ -40,9 +40,9 @@ class EtudiantController extends Controller
             'phone_etudiant'=>'required',
             'filiere'=>'required',
             'niveau'=>'required',
-            
+
         ]);
-    
+
         $etudiants = new etudiant();
         $etudiants->nom = $request->nom;
         $etudiants->prenom = $request->prenom;
@@ -53,9 +53,9 @@ class EtudiantController extends Controller
         $etudiants->niveau = $request->niveau;
 
         $etudiants->save();
-    
+
         return redirect('Etudiants.liste')->with('status', 'Etudiant a  été ajouté avec succes.');
-       
+
     }
 
     /**

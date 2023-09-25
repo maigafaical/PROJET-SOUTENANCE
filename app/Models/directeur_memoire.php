@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class directeur_memoire extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+        'prenom',
+        'adresse',
+        'telephone',
+        'fonction',
+    ];
 }

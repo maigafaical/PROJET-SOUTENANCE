@@ -67,24 +67,20 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bar-chart"></i><span>Gestion Enseignants</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
+            <a href="{{route('enseignants.index')}}">
+              <i class="bi bi-circle"></i><span>Liste Enseignants</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
+            <a href="{{route('enseignants.create')}}">
+              <i class="bi bi-circle"></i><span>Ajouter Enseignant</span>
             </a>
           </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li>
+
         </ul>
       </li><!-- End Charts Nav -->
 
@@ -110,6 +106,83 @@
           </li>
         </ul>
       </li><!-- End Icons Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav_1" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Gestion Directeurs</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav_1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('directeurs.index')}}">
+              <i class="bi bi-circle"></i><span>Liste Directeurs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('directeurs.create')}}">
+              <i class="bi bi-circle"></i><span>Ajouter Directeur</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End Components Nav_1 -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav_2" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Gestion MaitreStage</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav_2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('maitres.index')}}">
+              <i class="bi bi-circle"></i><span>Liste MaitreStage</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('maitres.create')}}">
+              <i class="bi bi-circle"></i><span>Ajouter MaitreStage</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End Components Nav_2 -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav_3" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Gestion Presidents</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav_3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('presidents.index')}}">
+              <i class="bi bi-circle"></i><span>Liste Presidents</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('presidents.create')}}">
+              <i class="bi bi-circle"></i><span>Ajouter Presidents</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End Components Nav_3 -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav_4" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Gestion Salles</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav_4" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('salles.index')}}">
+              <i class="bi bi-circle"></i><span>Liste Salles</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('salles.create')}}">
+              <i class="bi bi-circle"></i><span>Ajouter Salle</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End Components Nav_4 -->
+
 
       <li class="nav-heading">Pages</li>
 

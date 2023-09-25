@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class maitre_stage extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+        'prenom',
+        'adresse',
+        'telephone',
+        'fonction',
+    ];
 }

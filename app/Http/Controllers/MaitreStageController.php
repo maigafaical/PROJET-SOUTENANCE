@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\maitre_stage;
 
 class MaitreStageController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $maitres = maitre_stage::all();
+        return view('maitre_stage.liste', compact('maitres'));
     }
 
     /**
@@ -20,7 +22,7 @@ class MaitreStageController extends Controller
      */
     public function create()
     {
-        //
+        return view('maitre_stage.ajouter');
     }
 
     /**
@@ -28,7 +30,29 @@ class MaitreStageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+
+            'nom'=>'required',
+            'prenom'=>'required',
+            'adresse'=>'required',
+            'telephone'=>'required',
+            'fonction'=>'required',
+
+
+        ]);
+
+        $maitres = new maitre_stage();
+        $maitres->nom = $request->nom;
+        $maitres->prenom = $request->prenom;
+        $maitres->adresse = $request->adresse;
+        $maitres->telephone = $request->telephone;
+        $maitres->fonction = $request->fonction;
+
+
+        $maitres->save();
+
+        return redirect()->route('maitres.index')->with('status', 'Maitre de stage a  été ajouté avec succes.');
     }
 
     /**
