@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('email');
             $table->string('date_naissance');
             $table->string('sexe');
             $table->integer('phone_etudiant');
-            $table->integer('phone_parents');
             $table->string('filiere');
             $table->string('niveau');
             $table->timestamps();
