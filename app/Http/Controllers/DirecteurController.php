@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\directeur_memoire;
 
 class DirecteurController extends Controller
 {
@@ -12,7 +13,8 @@ class DirecteurController extends Controller
      */
     public function index()
     {
-        //
+        $directeurs = directeur_memoire::all();
+        return view('Directeurs_memoire.liste', compact('directeurs'));
     }
 
     /**
@@ -20,7 +22,7 @@ class DirecteurController extends Controller
      */
     public function create()
     {
-        //
+        return view('Directeurs_memoire.ajouter');
     }
 
     /**
@@ -28,7 +30,30 @@ class DirecteurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+
+            'nom'=>'required',
+            'prenom'=>'required',
+            'adresse'=>'required',
+            'telephone'=>'required',
+            'fonction'=>'required',
+
+
+        ]);
+
+        $directeurs = new directeur_memoire();
+        $directeurs->nom = $request->nom;
+        $directeurs->prenom = $request->prenom;
+        $directeurs->adresse = $request->adresse;
+        $directeurs->telephone = $request->telephone;
+        $directeurs->fonction = $request->fonction;
+
+
+        $directeurs->save();
+
+        return redirect()->route('directeurs.index')->with('status', 'Directeur a  été ajouté avec succes.');
+
     }
 
     /**

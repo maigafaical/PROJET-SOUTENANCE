@@ -8,7 +8,7 @@
 <section class="section">
   <div>
 
-@if (session('status'))
+    @if (session('status'))
 <div class="alert alert-success">
 {{session('status')}}
 </div>
@@ -27,30 +27,25 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Prénom</th>
-                  <th scope="col">Date de Naissance</th>
-                  <th scope="col">Sexe </th>
-                  <th scope="col">Téléphone </th>
-                  <th scope="col">Filière </th>
-                  <th scope="col">Niveau d'étude </th>
-                  <th scope="col">Actions </th>
+                  <th scope="col">Nom_salle</th>
+                  <th scope="col">Capacite</th>
+                  <th scope="col">Action</th>
+
+
                 </tr>
               </thead>
               <tbody>
-                @foreach ( $etudiants as $etud )
+                @foreach ( $salles as $sal )
                 <tr>
-                  <td>{{ $etud->id }}</td>
-                  <td>{{ $etud->nom }}</td>
-                  <td>{{ $etud->prenom }}</td>
-                  <td>{{ $etud->date_naissance }}</td>
-                  <td>{{ $etud->sexe }}</td>
-                  <td>{{ $etud->phone_etudiant }}</td>
-                  <td>{{ $etud->filiere }}</td>
-                  <td>{{ $etud->niveau }}</td>
+                  <td>{{ $sal->id }}</td>
+                  <td>{{ $sal->nom_salle }}</td>
+                  <td>{{ $sal->capacite }}</td>
+
+
+
                   <td>
-                    <a href="{{ route('etudiants.edit', $etud->id) }}" class="btn btn-info">Modifier</a>
-                    <a href="{{ route('etudiants.destroy', $etud->id) }}" class="btn btn-danger">supprimer</a>
+                    <a href="#" class="btn btn-info">Modifier</a>
+                    <a href="#" class="btn btn-danger">supprimer</a>
                   </td>
                 </tr>
                 @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\enseignant;
 
 class EnseignantController extends Controller
 {
@@ -12,7 +13,8 @@ class EnseignantController extends Controller
      */
     public function index()
     {
-        //
+        $enseignants = enseignant::all();
+        return view('Enseignants.liste', compact('enseignants'));
     }
 
     /**
@@ -20,7 +22,7 @@ class EnseignantController extends Controller
      */
     public function create()
     {
-        //
+        return view('Enseignants.ajouter');
     }
 
     /**
@@ -28,7 +30,27 @@ class EnseignantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+
+            'nom'=>'required',
+            'prenom'=>'required',
+            'telephone'=>'required',
+            'email'=>'required',
+
+
+
+        ]);
+
+        $enseignants = new enseignant();
+        $enseignants->nom = $request->nom;
+        $enseignants->prenom = $request->prenom;
+        $enseignants->telephone = $request->telephone;
+        $enseignants->email = $request->email;
+        $enseignants->save();
+
+        return redirect()->route('enseignants.index')->with('status', 'Enseignant a  été ajouté avec succes.');
+
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\president;
 
 class PresidentController extends Controller
 {
@@ -12,7 +13,8 @@ class PresidentController extends Controller
      */
     public function index()
     {
-        //
+        $presidents = President::all();
+        return view('Presidents.liste', compact('presidents'));
     }
 
     /**
@@ -20,7 +22,7 @@ class PresidentController extends Controller
      */
     public function create()
     {
-        //
+        return view('Presidents.ajouter');
     }
 
     /**
@@ -28,7 +30,29 @@ class PresidentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+
+            'nom'=>'required',
+            'prenom'=>'required',
+            'adresse'=>'required',
+            'telephone'=>'required',
+            'fonction'=>'required',
+
+
+
+        ]);
+
+        $presidents = new president();
+        $presidents->nom = $request->nom;
+        $presidents->prenom = $request->prenom;
+        $presidents->adresse = $request->adresse;
+        $presidents->telephone = $request->telephone;
+        $presidents->fonction = $request->fonction;
+        $presidents->save();
+
+        return redirect()->route('presidents.index')->with('status', 'president a  été ajouté avec succes.');
+
     }
 
     /**

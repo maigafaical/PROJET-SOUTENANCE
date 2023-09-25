@@ -30,7 +30,7 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
 
             'nom'=>'required',
@@ -40,9 +40,9 @@ class EtudiantController extends Controller
             'phone_etudiant'=>'required',
             'filiere'=>'required',
             'niveau'=>'required',
-            
+
         ]);
-    
+
         $etudiants = new etudiant();
         $etudiants->nom = $request->nom;
         $etudiants->prenom = $request->prenom;
@@ -53,9 +53,9 @@ class EtudiantController extends Controller
         $etudiants->niveau = $request->niveau;
 
         $etudiants->save();
-    
-        return redirect('Etudiants.liste')->with('status', 'Etudiant a  été ajouté avec succes.');
-       
+
+        return redirect()->route('etudiants.index')->with('status', 'Etudiant a  été ajouté avec succes.');
+
     }
 
     /**
@@ -71,15 +71,28 @@ class EtudiantController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $etudiants = etudiant::find($id);
+        return view('Etudiants.modifier',compact('etudiants'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $etudiants = etudiant::find($id);
+        $etudiants->update([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'date_naissance' => $request->date_naissance,
+            'sexe' => $request->sexe,
+            'phone_etudiant'  => $request->phone_etudiant,
+            'filiere' => $request->filiere,
+            'niveau' => $request->niveau,
+        ]);
+
+        return redirect()->route('etudiants.index')->with('status', 'Etudiant a  été modifié avec succes.');
     }
 
     /**
@@ -87,6 +100,8 @@ class EtudiantController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $etudiants = etudiant::find($id);
+        $etudiants->delete();
+        return redirect()->route('etudiants.index')->with('status', 'Etudiant a  été supprimé avec succes.');
     }
 }
