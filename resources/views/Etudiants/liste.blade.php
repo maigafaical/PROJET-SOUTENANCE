@@ -49,8 +49,8 @@
                   <td>{{ $etud->filiere }}</td>
                   <td>{{ $etud->niveau }}</td>
                   <td>
-                    <a href="#" class="btn btn-info">Modifier</a>
-                    <a href="#" class="btn btn-danger">supprimer</a>
+                    <a href="{{ route('etudiants.edit', $etud->id) }}" class="btn btn-info">Modifier</a>
+                    <a href="{{ route('etudiants.destroy', $etud->id) }}" class="btn btn-danger">supprimer</a>
                   </td>
                 </tr>
                 @endforeach
