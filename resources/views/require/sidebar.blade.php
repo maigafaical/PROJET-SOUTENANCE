@@ -68,32 +68,27 @@
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-bar-chart"></i><span>Gestion Enseignants</span><i class="bi bi-chevron-down ms-auto"></i>
-          <i class="bi bi-bar-chart"></i><span></span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{route('enseignants.index')}}">
               <i class="bi bi-circle"></i><span>Liste Enseignants</span>
-            <a href="{{route('juries.index')}}">
-              <i class="bi bi-circle"></i><span></span>
             </a>
           </li>
           <li>
             <a href="{{route('enseignants.create')}}">
               <i class="bi bi-circle"></i><span>Ajouter Enseignant</span>
-            <a href="{{route('juries.create')}}">
-              <i class="bi bi-circle"></i><span></span>
             </a>
           </li>
 
         </ul>
-      </li><!-- End Charts Nav -->
+    </li><!-- End Charts Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#charts-nave" data-bs-toggle="collapse" href="#">
           <i class="bi bi-bar-chart"></i><span>Gestion Juries</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="charts-nave" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{route('juries.index')}}">
               <i class="bi bi-circle"></i><span>Liste juries</span>
@@ -107,7 +102,7 @@
           <li>
           </li>
         </ul>
-      </li><!-- End Icons Nav -->
+      </li><!-- End Icons Nave -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav_1" data-bs-toggle="collapse" href="#">
