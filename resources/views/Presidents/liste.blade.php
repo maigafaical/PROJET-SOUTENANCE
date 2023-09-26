@@ -2,9 +2,6 @@
 
 @section('contenu')
 
-
-
-
 <section class="section">
   <div>
 
@@ -19,8 +16,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Datatables</h5>
-            <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+            <h5 class="card-title">Liste des presidents de jury</h5>
 
             <!-- Table with stripped rows -->
             <table class="table datatable">
@@ -48,8 +44,8 @@
 
 
                   <td>
-                    <a href="#" class="btn btn-info">Modifier</a>
-                    <a href="#" class="btn btn-danger">supprimer</a>
+                    <a href="" > <i class="bi bi-pencil-square"></i></a>
+                    <a href=""> <i class="bi bi-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach
