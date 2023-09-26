@@ -8,7 +8,7 @@
 <section class="section">
   <div>
 
-@if (session('status'))
+    @if (session('status'))
 <div class="alert alert-success">
 {{session('status')}}
 </div>
@@ -19,9 +19,8 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Datatables</h5>
-            <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
-
+            <h5 class="card-title">Liste des étudiants</h5>
+            
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
@@ -49,12 +48,14 @@
                   <td>{{ $etud->filiere }}</td>
                   <td>{{ $etud->niveau }}</td>
                   <td>
-                    <a href="{{ route('etudiants.edit', $etud->id) }}" class="btn btn-info">Modifier</a>
-                    <a href="{{ route('etudiants.destroy', $etud->id) }}" class="btn btn-danger">supprimer</a>
+
+                    <a href="{{ route('etudiants.edit', $etud->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                    <a href="{{ route('etudiants.destroy', $etud->id) }}"> <i class="bi bi-trash"></i></a>
+                    
                   </td>
                 </tr>
                 @endforeach
-
+                
 
               </tbody>
             </table>

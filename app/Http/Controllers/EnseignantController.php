@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\enseignant;
+use Illuminate\Support\Facades\Redirect;
 
 class EnseignantController extends Controller
 {
@@ -66,7 +67,8 @@ class EnseignantController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $enseignants = enseignant::find($id);
+        return view('Enseignants.modifier',compact('enseignants'));
     }
 
     /**
@@ -74,7 +76,16 @@ class EnseignantController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $enseignants = enseignant::find($id);
+        
+        $enseignants->update([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('enseignants.index')->with('status', 'Un enseignant a  été modifié avec succes.');
     }
 
     /**

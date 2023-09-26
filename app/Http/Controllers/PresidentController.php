@@ -68,7 +68,8 @@ class PresidentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $presidents = president::find($id);
+        return view('Presidents.modifier',compact('presidents'));
     }
 
     /**
@@ -76,7 +77,17 @@ class PresidentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $presidents = president::find($id);
+        
+        $presidents->update([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'adresse' => $request->adresse,
+            'telephone' => $request->telephone,
+            'fonction' => $request->fonction,
+        ]);
+
+        return redirect()->route('presidents.index')->with('status', 'Un President de jury a  été modifié avec succes.');
     }
 
     /**
