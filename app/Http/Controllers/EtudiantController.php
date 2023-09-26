@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\etudiant;
+use Illuminate\Support\Facades\Redirect;
 
 class EtudiantController extends Controller
 {
@@ -82,6 +83,7 @@ class EtudiantController extends Controller
     public function update(Request $request, $id)
     {
         $etudiants = etudiant::find($id);
+        
         $etudiants->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,

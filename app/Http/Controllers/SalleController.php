@@ -64,7 +64,8 @@ class SalleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $salles = salle::find($id);
+        return view('Salles.modifier',compact('salles'));
     }
 
     /**
@@ -72,7 +73,15 @@ class SalleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $salles = salle::find($id);
+        
+        $salles->update([
+            'nom_salle' => $request->nom_salle,
+            'capacite' => $request->capacite,
+            
+        ]);
+
+        return redirect()->route('salles.index')->with('status', 'Une salle a  été modifiée avec succes.');
     }
 
     /**

@@ -49,3 +49,8 @@ Route::resource('salles', SalleController::class);
 
 Route::resource('directeurs', DirecteurController::class);
 
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+

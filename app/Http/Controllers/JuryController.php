@@ -53,7 +53,7 @@ class JuryController extends Controller
 
         $juries->save();
 
-        return redirect('Juries.liste')->with('status', 'Jury a  été ajouté avec succes.');
+        return redirect('Juries.liste')->with('status', 'Un Jury a  été ajouté avec succes.');
     }
 
     /**

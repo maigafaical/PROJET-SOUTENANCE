@@ -68,7 +68,8 @@ class MaitreStageController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $maitres = maitre_stage::find($id);
+        return view('Maitre_stage.modifier',compact('maitres'));
     }
 
     /**
@@ -76,7 +77,17 @@ class MaitreStageController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $maitres = maitre_stage::find($id);
+        
+        $maitres->update([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'adresse' => $request->adresse,
+            'telephone' => $request->telephone,
+            'fonction' => $request->fonction,
+        ]);
+
+        return redirect()->route('maitres.index')->with('status', 'Un Maitre de stage a  été modifié avec succes.');
     }
 
     /**

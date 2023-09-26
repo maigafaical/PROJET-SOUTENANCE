@@ -44,8 +44,8 @@
 
 
                   <td>
-                    <a href="#" class="btn btn-info">Modifier</a>
-                    <a href="#" class="btn btn-danger">supprimer</a>
+                    <a href="{{ route('salles.edit', $sal->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                    <a href="{{ route('salles.destroy', $sal->id) }}"> <i class="bi bi-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach
