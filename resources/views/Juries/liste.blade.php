@@ -26,11 +26,10 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Libelle</th>
-                  <th scope="col">Enseignant</th>
-                  <th scope="col">L'utilisateur</th>
-                  <th scope="col">Maitre de stage</th>
-                  <th scope="col">President du jury</th>
-                  <th scope="col">Directeur de memoire</th>
+                  <th scope="col">Nom_Enseignant</th>
+                  <th scope="col">Nom_Maitre_stage</th>
+                  <th scope="col">Nom_President_jury</th>
+                  <th scope="col">Nom_Directeur_memoire</th>
                   <th scope="col">Actions </th>
                 </tr>
               </thead>
@@ -39,11 +38,11 @@
                 <tr>
                     <td>{{ $jur->id }}</td>
                     <td>{{ $jur->libelle }}</td>
-                    <td>{{ $jur->enseignants_id }}</td>
+                    <td>{{ $jur->enseignants->nom }} {{ $jur->enseignant->prenom }}</td>
                     <td>{{ $jur->users_id }}</td>
-                    <td>{{ $jur->maitre_stage_id }}</td>
-                    <td>{{ $jur->presidents_id }}</td>
-                    <td>{{ $jur->directeur_memoires_id }}</td>
+                    <td>{{ $jur->maitre_stage->nom }}  {{ $jur->maitre_stage->prenom }}</td>
+                    <td>{{ $jur->presidents->nom }} {{ $jur->president->prenom }}</td>
+                    <td>{{ $jur->directeur_memoires->nom}} {{ $jur->directeur_memoires->prenom}}  </td>
                     <td>
                     <a href="#" class="btn btn-info">Modifier</a>
                     <a href="#" class="btn btn-danger">supprimer</a>
