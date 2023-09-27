@@ -2,9 +2,6 @@
 
 @section('contenu')
 
-
-
-
 <section class="section">
   <div>
 
@@ -19,6 +16,7 @@
 
         <div class="card">
           <div class="card-body">
+            <h5 class="card-title">Liste des presidents de jury</h5>
             <h5 class="card-title">DListee des présidents</h5>
 
 
