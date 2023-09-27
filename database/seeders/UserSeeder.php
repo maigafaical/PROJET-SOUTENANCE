@@ -25,5 +25,26 @@ class UserSeeder extends Seeder
             'roles_id' => 1,
             'password' => Hash::make('Faical54@'),
             ]);
+
+
+            DB::table('users')->insert([
+                'name' => 'NGUILA STEVIE ROSE',
+                'username' => 'stevierose',
+                'email' =>'stevierosenguila2023@gmail.com',
+                'username' => 'stevierose',
+                
+                'roles_id' => 2,
+                'password' => Hash::make('steve03@'),
+                ]);
+
+                DB::table('users')->insert([
+                    'name' => 'JOYEUSE SARAH',
+                    'username' => 'joys',
+                    'email' =>'joysarah15@gmail.com',
+                    'username' => 'joys',
+                    
+                    'roles_id' => 3,
+                    'password' => Hash::make('joys07@'),
+                    ]);    
     }
 }

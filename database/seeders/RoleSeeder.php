@@ -18,12 +18,12 @@ class RoleSeeder extends Seeder
             'role' => 'Secretaire courrier',
         ]);
         
-        // DB::table('roles')->insert([
-        //     'role' => 'Agent traitant',
-        // ]);
+        DB::table('roles')->insert([
+            'role' => 'Agent traitant',
+        ]);
 
-        // DB::table('roles')->insert([
-        //     'role' => 'Administrateur',
-        // ]);
+        DB::table('roles')->insert([
+            'role' => 'Administrateur',
+        ]);
     }
 }
