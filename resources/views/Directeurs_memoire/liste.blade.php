@@ -19,7 +19,8 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Liste des Directeur_memoires</h5>
+            <h5 class="card-title">Liste des directeurs de memoire</h5>
+
 
             <!-- Table with stripped rows -->
             <table class="table datatable">
@@ -47,6 +48,7 @@
 
 
                   <td>
+
                     <a href="{{ route('directeurs.edit', $direc->id) }}" > <i class="bi bi-pencil-square"></i></a>
                     <a href="{{ url('supprimer-directeur/' .$direc->id) }}"> <i class="bi bi-trash"></i></a>
                   </td>

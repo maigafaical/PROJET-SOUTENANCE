@@ -16,8 +16,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Liste des Soutenances</h5>
-            
+            <h5 class="card-title">Liste des soutenances</h5>
 
             <!-- Table with stripped rows -->
             <table class="table datatable">

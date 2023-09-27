@@ -19,7 +19,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Liste des maitre_stages</h5>
+            <h5 class="card-title">Liste des maitres de stage</h5>
 
 
             <!-- Table with stripped rows -->
@@ -48,6 +48,7 @@
 
 
                   <td>
+
                     <a href="{{ route('maitres.edit', $maitre->id) }}" > <i class="bi bi-pencil-square"></i></a>
                     <a href="{{ url('supprimer-maitre/' .$maitre->id) }}"> <i class="bi bi-trash"></i></a>
                   </td>
