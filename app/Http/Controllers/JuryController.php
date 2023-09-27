@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\jury;
+use App\Models\enseignant;
+use App\Models\maitre_stage;
+use App\Models\directeur_memoire;
+use App\Models\president;
 
 class JuryController extends Controller
 {
@@ -22,8 +26,24 @@ class JuryController extends Controller
      */
     public function create()
     {
-        return view('Juries.ajouter');
+        $enseignants = enseignant::all();
+        $maitres = maitre_stage::all();
+        $directeurs = directeur_memoire::all();
+        $presidents = president::all();
+
+        return view('Juries.ajouter',compact('enseignants','maitres','directeurs','presidents'));
+
     }
+
+
+
+    /**
+     * Show the form for creating a new resource.
+     */
+
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -53,7 +73,7 @@ class JuryController extends Controller
 
         $juries->save();
 
-        return redirect('Juries.liste')->with('status', 'Jury a  été ajouté avec succes.');
+        return redirect()->route('juries.index')->with('status', 'Un jury a  été ajouté avec succes.');
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\jury;
 class president extends Model
 {
     use HasFactory;
@@ -16,4 +16,8 @@ class president extends Model
 
 
     ];
+
+    function jury(){
+        return $this->hasOne(jury::class);
+       }
 }

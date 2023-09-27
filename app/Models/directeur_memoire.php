@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\jury;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,4 +15,9 @@ class directeur_memoire extends Model
         'telephone',
         'fonction',
     ];
+
+    function jury(){
+        return $this->hasOne(jury::class);
+       }
+
 }

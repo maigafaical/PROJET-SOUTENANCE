@@ -8,7 +8,7 @@
 <section class="section">
   <div>
 
-@if (session('status'))
+    @if (session('status'))
 <div class="alert alert-success">
 {{session('status')}}
 </div>
@@ -20,7 +20,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Liste des etudiants</h5>
-           
+
 
             <!-- Table with stripped rows -->
             <table class="table datatable">
@@ -49,8 +49,8 @@
                   <td>{{ $etud->filiere }}</td>
                   <td>{{ $etud->niveau }}</td>
                   <td>
-                    <a href="" > <i class="bi bi-pencil-square"></i></a>
-                    <a href=""> <i class="bi bi-trash"></i></a>
+                    <a href="{{ route('etudiants.edit', $etud->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                    <a href="{{ route('etudiants.destroy', $etud->id) }}"> <i class="bi bi-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

@@ -48,8 +48,10 @@
 
 
                   <td>
-                    <a href="" > <i class="bi bi-pencil-square"></i></a>
-                    <a href=""> <i class="bi bi-trash"></i></a>
+                    
+                    <a href="{{ route('directeurs.edit', $direc->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                    <a href="{{ route('directeurs.destroy', $direc->id) }}"> <i class="bi bi-trash"></i></a>
+                  </td>
                 </tr>
                 @endforeach
 

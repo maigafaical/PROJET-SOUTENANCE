@@ -49,30 +49,44 @@
               </div>
 
               <div class="col-md-6">
-                <label for="inputEmail5" class="form-label">Enseignants</label>
-                <input type="text" class="form-control" name="enseignants_id">
+                <label for="" class="form-label">Enseignants</label>
+                <select class="form-control"   name="enseignants_id">
+                    <option>Selectionner un enseignant</option>
+                    @foreach ($enseignants as $ensei)
+                    <option value="{{$ensei->id}}">{{$ensei->nom}} {{$ensei->prenom}}</option>
+                @endforeach
+                </select>
               </div>
 
 
 
               <div class="col-md-6">
-                <label for="inputPassword5" class="form-label">Users</label>
-                <input type="text" class="form-control" name="users_id">
+                <label for="" class="form-label">Maitre_stage</label>
+                <select class="form-control"   name="maitre_stages_id">
+                    <option>Selectionner un maitre_stage </option>
+                    @foreach ($maitre_stages as $maitre)
+                    <option value="{{$maitre->id}}">{{$maitre->nom}} {{$maitre->prenom}}</option>
+                @endforeach
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Presidents</label>
+                <select class="form-control"   name="Presidents_id">
+                    <option>Selectionner un president</option>
+                    @foreach ($presidents as $pres)
+                    <option value="{{$pres->id}}">{{$pres->nom}} {{$pres->prenom}}</option>
+                @endforeach
+                </select>
               </div>
 
-              <div class="col-6">
-                <label for="inputAddress5" class="form-label">Maitre_stages</label>
-                <input type="text" class="form-control" name="maitre_stages_id">
-              </div>
-
-              <div class="col-6">
-                <label for="inputAddress5" class="form-label">Presidents</label>
-                <input type="text" class="form-control" name="presidents_id">
-              </div>
-
-              <div class="col-6">
-                <label for="inputAddress5" class="form-label">Directeur_memoires</label>
-                <input type="text" class="form-control" name="directeur_memoires_id">
+              <div class="col-md-6">
+                <label for="" class="form-label">Directeurs</label>
+                <select class="form-control"   name="directeur_memoires_id">
+                    <option>Selectionner un directeur_memoire</option>
+                    @foreach ($directeur_memoires as $directeur)
+                    <option value="{{$directeur->id}}">{{$directeur->nom}} {{$directeur->prenom}}</option>
+                @endforeach
+                </select>
               </div>
 
 

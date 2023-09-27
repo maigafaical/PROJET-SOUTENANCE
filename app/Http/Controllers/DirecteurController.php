@@ -69,7 +69,8 @@ class DirecteurController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $directeurs = directeur_memoire::find($id);
+        return view('Directeurs_memoire.modifier',compact('directeurs'));
     }
 
     /**
@@ -77,7 +78,17 @@ class DirecteurController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $directeurs = directeur_memoire::find($id);
+        
+        $directeurs->update([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'adresse' => $request->adresse,
+            'telephone' => $request->telephone,
+            'fonction' => $request->fonction,
+        ]);
+
+        return redirect()->route('directeurs.index')->with('status', 'Un directeur de mémoire a  été modifié avec succes.');
     }
 
     /**
