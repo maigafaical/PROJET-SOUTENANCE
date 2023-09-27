@@ -79,7 +79,7 @@ class DirecteurController extends Controller
     public function update(Request $request, string $id)
     {
         $directeurs = directeur_memoire::find($id);
-        
+
         $directeurs->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
@@ -96,6 +96,10 @@ class DirecteurController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        {
+            $directeurs = directeur_memoire::find($id);
+            $directeurs->delete();
+            return redirect()->route('directeurs.index')->with('status', 'Directeur a  été supprimé avec succes.');
+        }
     }
 }

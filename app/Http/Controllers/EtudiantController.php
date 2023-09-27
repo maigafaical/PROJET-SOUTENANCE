@@ -83,7 +83,7 @@ class EtudiantController extends Controller
     public function update(Request $request, $id)
     {
         $etudiants = etudiant::find($id);
-        
+
         $etudiants->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,

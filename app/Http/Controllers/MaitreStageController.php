@@ -78,7 +78,7 @@ class MaitreStageController extends Controller
     public function update(Request $request, string $id)
     {
         $maitres = maitre_stage::find($id);
-        
+
         $maitres->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
@@ -95,6 +95,10 @@ class MaitreStageController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        {
+            $maitres = maitre_stage::find($id);
+            $maitres->delete();
+            return redirect()->route('maitres.index')->with('status', 'Maitre a  été supprimé avec succes.');
+        }
     }
 }

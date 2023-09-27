@@ -26,16 +26,21 @@ class AuthController extends Controller
         }
 
         return view('Auth.login')->with('status', 'Identifiant ou mot de passe incorrect.');
-        
+
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return view('Auth.login')->with('status', 'Vous etes déconnecté.');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function logout()
+    public function storage()
     {
-        Auth::logout();
-        return view('Auth.login')->with('status', 'Vous etes déconnecté.');
+
     }
 
     /**

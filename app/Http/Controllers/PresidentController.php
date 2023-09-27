@@ -78,7 +78,7 @@ class PresidentController extends Controller
     public function update(Request $request, string $id)
     {
         $presidents = president::find($id);
-        
+
         $presidents->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
@@ -95,6 +95,10 @@ class PresidentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        {
+            $presidents = president::find($id);
+            $presidents->delete();
+            return redirect()->route('presidents.index')->with('status', 'President a  été supprimé avec succes.');
+        }
     }
 }

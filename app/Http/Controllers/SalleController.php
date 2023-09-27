@@ -74,11 +74,11 @@ class SalleController extends Controller
     public function update(Request $request, string $id)
     {
         $salles = salle::find($id);
-        
+
         $salles->update([
             'nom_salle' => $request->nom_salle,
             'capacite' => $request->capacite,
-            
+
         ]);
 
         return redirect()->route('salles.index')->with('status', 'Une salle a  été modifiée avec succes.');
@@ -89,6 +89,10 @@ class SalleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        {
+            $salles = salle::find($id);
+            $salles->delete();
+            return redirect()->route('salles.index')->with('status', 'Salle a  été supprimé avec succes.');
+        }
     }
 }

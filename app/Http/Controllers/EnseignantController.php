@@ -77,7 +77,7 @@ class EnseignantController extends Controller
     public function update(Request $request, string $id)
     {
         $enseignants = enseignant::find($id);
-        
+
         $enseignants->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
@@ -93,6 +93,10 @@ class EnseignantController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        {
+            $enseignants = enseignant::find($id);
+            $enseignants->delete();
+            return redirect()->route('enseignants.index')->with('status', 'Enseignant a  été supprimé avec succes.');
+        }
     }
 }
