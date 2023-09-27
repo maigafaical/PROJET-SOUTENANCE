@@ -41,20 +41,21 @@
               <div class="card-body">
                 <h5 class="card-title">Ajouter un nouveau jury </h5>
 
-              <form method="POST" action="{{route('juries.store')}}" class="row g-3">
+              <form method="POST" action="{{route('juries.update', [$juries->id])}}" class="row g-3">
+                @method('PATCH')
               @csrf
               <div class="col-md-6">
                 <label for="inputName5" class="form-label">Libelle </label>
-                <input type="text" class="form-control" name="libelle">
+                <input type="text" class="form-control" name="libelle" value="{{ $juries->libelle}}">
               </div>
 
               <div class="col-md-6">
                 <label for="" class="form-label">Choisir un Enseignant</label>
-                <select class="form-control"   name="enseignants_id">
+                <select class="form-control"   name="enseignants_id" value="{{ $juries->enseignants_id}}">
                     <option>Selectionner un enseignant</option>
                     @foreach ($enseignants as $ensei)
                     <option value="{{$ensei->id}}">{{$ensei->nom}} {{$ensei->prenom}}</option>
-                @endforeach
+                    @endforeach
                 </select>
               </div>
 
@@ -62,7 +63,7 @@
 
               <div class="col-md-6">
                 <label for="" class="form-label">Choisir un Maitre de stage</label>
-                <select class="form-control"   name="maitre_stages_id">
+                <select class="form-control"   name="maitre_stages_id" value="{{ $juries->maitre_stages_id}}">
                     <option>Selectionner un maitre_stage </option>
                     @foreach ($maitres as $maitre)
                     <option value="{{$maitre->id}}">{{$maitre->nom}} {{$maitre->prenom}}</option>
@@ -71,7 +72,7 @@
               </div>
               <div class="col-md-6">
                 <label for="" class="form-label">Choisir un President de jury</label>
-                <select class="form-control"   name="presidents_id">
+                <select class="form-control"   name="presidents_id" value="{{ $juries->presidents_id}}">
                     <option>Selectionner un president de jury</option>
                     @foreach ($presidents as $pres)
                     <option value="{{$pres->id}}">{{$pres->nom}} {{$pres->prenom}}</option>
@@ -81,7 +82,7 @@
 
               <div class="col-md-6">
                 <label for="" class="form-label">Choisir un Directeur de mémoire</label>
-                <select class="form-control"   name="directeur_memoires_id">
+                <select class="form-control"   name="directeur_memoires_id" value="{{ $juries->directeur_memoires_id}}">
                     <option>Selectionner un directeur de memoire</option>
                     @foreach ($directeurs as $directeur)
                     <option value="{{$directeur->id}}">{{$directeur->nom}} {{$directeur->prenom}}</option>

@@ -1,13 +1,15 @@
 <?php
 
-namespace Database\Seeders;
+ namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+ use Illuminate\Database\Seeder;
+ use Illuminate\Support\Facades\DB;
+ use Illuminate\Support\Facades\Hash;
+ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class DatabaseSeeder extends Seeder
+
+
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeders.
@@ -17,10 +19,11 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'MAIGA FAICAL',
             'username' => 'faicalmaiga',
-
             'email' =>'faicalmaiga78@gmail.com',
+            'username' => 'faicalmaiga',
 
+            'roles_id' => 1,
             'password' => Hash::make('Faical54@'),
-        ]);
+            ]);
     }
 }

@@ -52,6 +52,14 @@
                                 </a>
                             </div><!-- End Logo -->
 
+
+                            @if (session('status'))
+            <div class="alert alert-success">{{session('status')}}</div>
+            @endif
+
+          <form class="row g-3" action="{{ route('login') }}" method="POST" >
+                @csrf
+
                             <div class="card mb-3">
 
                                 <div class="card-body">
@@ -62,8 +70,13 @@
                                             passe pour vous connecter</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" novalidate method="">
-
+                                    @if (session('status'))
+                                    <div class="alert alert-success">{{session('status')}}</div>
+                                    @endif
+                        
+                                  <form class="row g-3" action="{{ route('login') }}" method="POST" >
+                                        @csrf
+                                        
                                         <div class="col-12">
                                             <label for="yourUsername" class="form-label">Nom d'utilisateur</label>
                                             <div class="input-group has-validation">

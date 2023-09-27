@@ -54,7 +54,7 @@ class JuryController extends Controller
 
             'libelle'=>'required',
             'enseignants_id'=>'required',
-            'users_id'=>'required',
+            
             'maitre_stages_id'=>'required',
             'presidents_id'=>'required',
             'directeur_memoires_id'=>'required',
@@ -65,7 +65,7 @@ class JuryController extends Controller
         $juries = new jury();
         $juries->libelle = $request->libelle;
         $juries->enseignants_id = $request->enseignants_id;
-        $juries->users_id = $request->users_id ;
+        
         $juries->maitre_stages_id = $request->maitre_stages_id ;
         $juries->presidents_id = $request->presidents_id;
         $juries->directeur_memoires_id = $request->directeur_memoires_id;
@@ -89,7 +89,8 @@ class JuryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $juries = jury::find($id);
+        return view('Juries.modifier',compact('juries'));
     }
 
     /**
@@ -97,7 +98,18 @@ class JuryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $juries = jury::find($id);
+        
+        $juries->update([
+            'libelle' => $request->libelle,
+            'enseignants_id' => $request->enseignants_id,
+            'maitre_stages_id' => $request->maitre_stages_id,
+            'presidents_id' => $request->presidents_id,
+            'directeur_memoires_id'  => $request->directeur_memoires_id,
+            
+        ]);
+
+        return redirect()->route('juries.index')->with('status', 'Un jury a  été modifié avec succes.');
     }
 
     /**
