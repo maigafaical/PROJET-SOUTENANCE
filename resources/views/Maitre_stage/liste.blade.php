@@ -19,8 +19,8 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Datatables</h5>
-            <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+            <h5 class="card-title">Liste des maitres de stage</h5>
+
 
             <!-- Table with stripped rows -->
             <table class="table datatable">
@@ -48,6 +48,7 @@
 
 
                   <td>
+
                     <a href="{{ route('maitres.edit', $maitre->id) }}" > <i class="bi bi-pencil-square"></i></a>
                     <a href="{{ route('maitres.destroy', $maitre->id) }}"> <i class="bi bi-trash"></i></a>
                   </td>
