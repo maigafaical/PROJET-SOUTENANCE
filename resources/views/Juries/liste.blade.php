@@ -38,15 +38,13 @@
                 <tr>
                     <td>{{ $jur->id }}</td>
                     <td>{{ $jur->libelle }}</td>
-                    <td>{{ $jur->enseignants->nom }} {{ $jur->enseignant->prenom }}</td>
-                    <td>{{ $jur->users_id }}</td>
-                    <td>{{ $jur->maitre_stage->nom }}  {{ $jur->maitre_stage->prenom }}</td>
-                    <td>{{ $jur->presidents->nom }} {{ $jur->president->prenom }}</td>
-                    <td>{{ $jur->directeur_memoires->nom}} {{ $jur->directeur_memoires->prenom}}  </td>
+                    <td>{{ $jur->enseignant->nom }} {{ $jur->enseignant->prenom }}</td>
+                    <td>{{ $jur->maitre_stage->nom   }}  {{ $jur->maitre_stage->prenom }}</td>
+                    <td>{{ $jur->president->nom  }} {{ $jur->president->prenom }}</td>
+                    <td>{{ $jur->directeur_memoire->nom  }} {{ $jur->directeur_memoire->prenom  }}  </td>
                     <td>
-
-                        <a href="" > <i class="bi bi-pencil-square"></i></a>
-                        <a href=""> <i class="bi bi-trash"></i></a>
+                      <a href="{{ route('juries.edit', $jur->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                      <a href="{{ route('juries.destroy', $jur->id) }}"> <i class="bi bi-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach
