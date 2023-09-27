@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\DirecteurController;
 use App\Http\Controllers\EnseignantController;
@@ -24,7 +24,7 @@ use App\Http\Controllers\SoutenanceController;
 */
 
 Route::get('/', function () {
-    return view('welcome'); 
+    return view('Auth'); 
 });
 
 Route::get('/dashboard', function () {
@@ -49,8 +49,8 @@ Route::resource('salles', SalleController::class);
 
 Route::resource('directeurs', DirecteurController::class);
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/login',[AuthController::class, 'login'] )->name('login');
+Route::get('/logout',[AuthController::class, 'logout'] )->name('logout');
 
 
 
