@@ -6,14 +6,14 @@
 
 
 <div class="pagetitle">
-  
+
   <div>
 
     @if (session('status'))
   <div class="alert alert-success">
   {{session('status')}}
   </div>
-  
+
   @endif
 <ul>
 @foreach ($errors->all() as $error)
@@ -31,7 +31,7 @@
   <!-- End Page Title -->
 
   <section class="section dashboard">
-    
+
     <div class="row">
       <!-- Left side columns -->
       <div class="col-lg-12">
@@ -44,7 +44,7 @@
               <div class="card-body">
                 <h5 class="card-title">Inscription d'un étudiant </h5>
 
-              <form method="POST" action="{{route('etudiants.store')}}" class="row g-3">
+              <form method="POST" action="{{route('etudiants.store')}}" class="row g-3" enctype="multipart/form-data">
                 @csrf
               <div class="col-md-6">
                 <label for="inputName5" class="form-label">Nom </label>
@@ -56,7 +56,7 @@
                 <input type="text" class="form-control" name="prenom">
               </div>
 
-            
+
 
               <div class="col-md-6">
                 <label for="inputPassword5" class="form-label">Date de naissance</label>
@@ -74,7 +74,7 @@
               </div>
 
 
-        
+
               <div class="col-6">
                 <label for="inputAddress5" class="form-label">Filière </label>
                 <input type="text" class="form-control" name="filiere">
@@ -84,6 +84,11 @@
                 <label for="inputAddress5" class="form-label">Niveau d'étude</label>
                 <input type="text" class="form-control" name="niveau">
               </div>
+
+              
+                <div class="col-lg-6">
+                    <input type="file" name="photo" class="form-control" placeholder="photo">
+               </div>
 
               <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enregistrer</button>

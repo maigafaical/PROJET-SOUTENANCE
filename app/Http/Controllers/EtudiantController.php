@@ -41,6 +41,7 @@ class EtudiantController extends Controller
             'phone_etudiant'=>'required',
             'filiere'=>'required',
             'niveau'=>'required',
+            'photo'=>'required',
 
         ]);
 
@@ -52,6 +53,7 @@ class EtudiantController extends Controller
         $etudiants->phone_etudiant = $request->phone_etudiant;
         $etudiants->filiere = $request->filiere;
         $etudiants->niveau = $request->niveau;
+        $etudiants->photo = $request->photo->store('photo','public');
 
         $etudiants->save();
 

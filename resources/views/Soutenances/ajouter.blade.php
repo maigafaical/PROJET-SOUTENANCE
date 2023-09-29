@@ -47,7 +47,6 @@
               </div>
 
 
-
               <div class="col-6">
                 <label for="inputAddress5" class="form-label">Salle</label>
                 <input type="text" class="form-control" name="salles_id">
