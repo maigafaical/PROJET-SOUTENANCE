@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('phone_etudiant');
             $table->string('filiere');
             $table->string('niveau');
+            $table->string('photo');
             $table->timestamps();
         });
     }

@@ -36,6 +36,7 @@
                   <th scope="col">Téléphone </th>
                   <th scope="col">Filière </th>
                   <th scope="col">Niveau d'étude </th>
+                  <th scope="col">Photo</th>
                   <th scope="col">Actions </th>
                 </tr>
               </thead>
@@ -50,6 +51,8 @@
                   <td>{{ $etud->phone_etudiant }}</td>
                   <td>{{ $etud->filiere }}</td>
                   <td>{{ $etud->niveau }}</td>
+                  <td><img class="h-50 w-50" src="{{ asset('storage') . '/' . $etud->photo }}" alt=""></td>
+
                   <td>
                     <a href="{{ route('etudiants.edit', $etud->id) }}" > <i class="bi bi-pencil-square"></i></a>
                    
