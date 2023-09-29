@@ -67,10 +67,10 @@
                 <label for="inputState" class="form-label">Période</label>
                 <select name="periode" class="form-select">
                   <option>Choisir la période ...</option>
-                  <option>Informatique de Gestion</option>
-                  <option>Reseaux Informatique</option>
-                  <option>Comptabilité Générale</option>
-                  <option>Communication Digitale</option>
+                  <option>Janvier</option>
+                  <option>Février</option>
+                  <option>Mars</option>
+                  <option>Avril</option>
                 </select>
               </div>
 

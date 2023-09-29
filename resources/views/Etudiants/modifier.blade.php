@@ -38,13 +38,13 @@
         <div class="row">
 
           <!-- Formulaire inscription etudiant -->
- [$etudiants->id]
+
           <div class="col-12">
             <div class="card recent-sales overflow-auto">
               <div class="card-body">
                 <h5 class="card-title">Inscription d'un étudiant </h5>
 
-              <form method="POST" action="{{route('etudiants.update',)}}" class="row g-3">
+              <form method="POST" action="{{route('etudiants.update', [$etudiants->id])}}" class="row g-3">
                 @method('PATCH')
                 @csrf
 
@@ -86,6 +86,10 @@
                 <label for="inputAddress5" class="form-label">Niveau d'étude</label>
                 <input type="text" class="form-control" name="niveau" value="{{ $etudiants->niveau}}">
               </div>
+
+              <div class="col-lg-6">
+                <input type="file" name="photo" class="form-control" placeholder="photo" value="{{ $etudiants->photo}}">
+           </div>
 
               <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enregistrer</button>

@@ -76,8 +76,9 @@ class DemandeController extends Controller
      */
     public function edit(string $id)
     {
+        $etudiants = etudiant::find($id);
         $demandes = demande::find($id);
-        return view('Demandes.modifier',compact('demandes'));
+        return view('Demandes.modifier',compact('demandes', 'etudiants'));
     }
 
     /**

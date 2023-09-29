@@ -89,8 +89,12 @@ class JuryController extends Controller
      */
     public function edit(string $id)
     {
+        $enseignants = enseignant::all();
+        $maitres = maitre_stage::all();
+        $directeurs = directeur_memoire::all();
+        $presidents = president::all();
         $juries = jury::find($id);
-        return view('Juries.modifier',compact('juries'));
+        return view('Juries.modifier',compact('juries', 'enseignants','maitres','directeurs','presidents'));
     }
 
     /**

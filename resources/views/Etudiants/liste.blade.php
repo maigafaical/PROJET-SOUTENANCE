@@ -54,6 +54,8 @@
                   <td><img class="h-50 w-50" src="{{ asset('storage') . '/' . $etud->photo }}" alt=""></td>
 
                   <td>
+                    
+
                     <a href="{{ route('etudiants.edit', $etud->id) }}" > <i class="bi bi-pencil-square"></i></a>
                    
                     <a href="{{ url('supprimer-etudiant/' .$etud->id) }}"> <i class="bi bi-trash"></i></a>

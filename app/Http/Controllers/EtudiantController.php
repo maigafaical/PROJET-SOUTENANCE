@@ -64,9 +64,11 @@ class EtudiantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( $id)
     {
-        //
+        $etudiants = etudiant::find($id);
+        return view('Etudiants.details',compact('etudiants'));
+
     }
 
     /**

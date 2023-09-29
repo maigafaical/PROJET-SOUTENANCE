@@ -86,7 +86,7 @@
               </div>
 
               
-                <div class="col-lg-6">
+                <div class="col-6 mt-5">
                     <input type="file" name="photo" class="form-control" placeholder="photo">
                </div>
 

@@ -33,12 +33,27 @@
                   <td>{{ $demande->statut }}</td>
                   <td>{{ $demande->date }}</td>
                   <td>{{ $demande->periode }}</td>
-                  <td>{{ $demande->etudiants_id }}</td>
+                  <td>{{ $demande->etudiant->nom }} {{ $demande->etudiant->prenom }}</td>
                  
 
                   <td>
+                    @if (Auth::user()->roles_id == '1')
+                    @elseif (Auth::user()->roles_id == '3')
                     <a href="{{ route('demandes.edit', $demande->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                   
+
+                    @else
+
+                    @endif
+
+                   
+
+                    @if (Auth::user()->roles_id == '3')
                     <a href="{{ url('supprimer-demande/' .$demande->id)}}"> <i class="bi bi-trash"></i></a>
+
+                    @else
+
+                    @endif
                   </td>
                 </tr>
                 @endforeach
