@@ -25,21 +25,22 @@
               <div class="card-body">
                 <h5 class="card-title">Ajout d'une nouvelle demande </h5>
 
-              <form class="row g-3" method="POST" action="{{route('demandes.store')}}">
+              <form class="row g-3" method="POST" action="{{route('demandes.update', $demandes->id)}}">
+                @method('PATCH')
                 @csrf
               <div class="col-md-12">
                 <label for="inputName5" class="form-label">Libelle</label>
-                <input type="text" class="form-control" name="libelle">
+                <input type="text" class="form-control" name="libelle" value="{{ $demandes->libelle}}">
               </div>
 
               <div class="col-md-6">
                 <label for="inputEmail5" class="form-label">Titre</label>
-                <input type="text" class="form-control" name="titre">
+                <input type="text" class="form-control" name="titre" value="{{ $demandes->titre}}">
               </div>
 
               <div class="col-md-6">
                 <label for="inputPassword5" class="form-label">Resumé</label>
-                <input type="text" class="form-control" name="resume">
+                <input type="text" class="form-control" name="resume" value="{{ $demandes->resume}}">
               </div>
 
               <div class="row">
@@ -54,7 +55,7 @@
 
                 <div class="col-md-12">
                   <label for="inputAddress5" class="form-label">Date</label>
-                  <input type="date" class="form-control" name="date">
+                  <input type="date" class="form-control" name="date" value="{{ $demandes->date}}">
                 </div>
   
               </div>
@@ -65,7 +66,7 @@
 
               <div class="col-md-6">
                 <label for="inputState" class="form-label">Période</label>
-                <select name="periode" class="form-select">
+                <select name="periode" class="form-select" value="{{ $demandes->periode}}">
                   <option>Choisir la période ...</option>
                   <option>Informatique de Gestion</option>
                   <option>Reseaux Informatique</option>
@@ -76,7 +77,7 @@
 
               <div class="col-md-6 mt-2">
 
-                <select class="form-control" name="etudiants_id">
+                <select class="form-control" name="etudiants_id" value="{{ $demandes->etudiants_id}}">
 
                     <option>Selectionner un etudiant</option>;
                     @foreach ($etudiants as $etud)

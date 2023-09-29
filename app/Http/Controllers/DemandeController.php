@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\demande;
+use App\Models\etudiant;
 use Illuminate\Http\Request;
 
 class DemandeController extends Controller
@@ -12,15 +14,19 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        return view('Demandes.liste');
+       
+        $demandes = demande::all();
+        return view('Demandes.liste', compact('demandes'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
+
     {
-        return view('Demandes.ajouter');
+        $etudiants = etudiant::all();
+        return view('Demandes.ajouter',compact('etudiants'));
     }
 
     /**
@@ -28,7 +34,33 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        demande::create([
+            'libelle'=> $request-> libelle,
+            'titre'=> $request-> titre,
+            'resume'=> $request-> resume,
+            'statut'=> $request-> statut,
+            'date'=> $request-> date,
+            'periode'=> $request-> periode,
+            'etudiants_id'=> $request-> etudiants_id,
+        ]);
+        // $request->validate([
+
+            
+
+        // ]);
+
+        // $demandes = new demande();
+        // $demandes->libelle = $request->libelle;
+        // $demandes->titre = $request->titre;
+        // $demandes->resume = $request->resume;
+        // $demandes->date = $request->date;
+        // $demandes->periode = $request->periode;
+        // $demandes->etudiants_id = $request->etudiants_id;
+        
+        // $demandes->save();
+
+        return redirect()->route('demandes.index')->with('status', 'Une demande a  été ajoutée avec succes.');
     }
 
     /**
@@ -44,7 +76,8 @@ class DemandeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $demandes = demande::find($id);
+        return view('Demandes.modifier',compact('demandes'));
     }
 
     /**
@@ -52,7 +85,19 @@ class DemandeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $demandes = demande::find($id);
+
+        $demandes->update([
+            'libelle' => $request->libelle,
+            'titre' => $request->titre,
+            'resume' => $request->resume,
+            'statut' => $request->statut,
+            'date' => $request->date,
+            'periode' => $request->periode,
+            'etudiants_id' => $request->etudiants_id,
+        ]);
+
+        return redirect()->route('demandes.index')->with('status', 'Une demande a  été modifié avec succes.');
     }
 
     /**
@@ -60,6 +105,8 @@ class DemandeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $demandes = demande::find($id);
+            $demandes->delete();
+            return redirect()->route('enseignants.index')->with('status', 'Une demande a  été supprimée avec succes.');
     }
 }

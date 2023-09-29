@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\soutenance;
+use App\Models\jury;
 
 class SoutenanceController extends Controller
 {
@@ -50,8 +51,7 @@ class SoutenanceController extends Controller
         $soutenances->salles = $request->salles;
         $soutenances->users= $request->users;
 
-
-        $Soutenances->save();
+        $soutenances->save();
 
         return redirect('Soutenances.liste')->with('status', 'Soutenance a  été ajouté avec succes.');
     }

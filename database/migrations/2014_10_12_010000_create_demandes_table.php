@@ -13,17 +13,18 @@ return new class extends Migration
     {
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
+            $table->string('libelle');
             $table->string('titre');
             $table->string('resume');
             $table->string('statut');
             $table->date('date');
-            $table->string('etablissement');
+            $table->string('periode');
 
             $table->unsignedBigInteger('etudiants_id')->unsigned();
             $table->foreign('etudiants_id')->references('id')->on('etudiants')->onDelete('cascade')->onUpdate('cascade');
 
-            $table->unsignedBigInteger('users_id')->unsigned();
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+           
+            
 
             $table->timestamps();
         });

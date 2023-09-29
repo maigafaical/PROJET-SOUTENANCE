@@ -38,13 +38,13 @@
         <div class="row">
 
           <!-- Formulaire inscription etudiant -->
-
+ [$etudiants->id]
           <div class="col-12">
             <div class="card recent-sales overflow-auto">
               <div class="card-body">
                 <h5 class="card-title">Inscription d'un étudiant </h5>
 
-              <form method="POST" action="{{route('etudiants.update', [$etudiants->id])}}" class="row g-3">
+              <form method="POST" action="{{route('etudiants.update',)}}" class="row g-3">
                 @method('PATCH')
                 @csrf
 

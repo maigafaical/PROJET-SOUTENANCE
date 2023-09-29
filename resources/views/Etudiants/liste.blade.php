@@ -52,7 +52,10 @@
                   <td>{{ $etud->niveau }}</td>
                   <td>
                     <a href="{{ route('etudiants.edit', $etud->id) }}" > <i class="bi bi-pencil-square"></i></a>
-                    <a href="{{ route('etudiants.destroy', $etud->id) }}"> <i class="bi bi-trash"></i></a>
+                   
+                    <a href="{{ url('supprimer-etudiant/' .$etud->id) }}"> <i class="bi bi-trash"></i></a>
+                    
+                    
 
                   </td>
                 </tr>

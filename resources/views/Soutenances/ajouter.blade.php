@@ -26,6 +26,7 @@
                 <h5 class="card-title">Ajout d'une soutenance </h5>
 
               <form method="POST" action="{{route('soutenances.store')}}" class="row g-3">
+                <input type="text" name="users_id" class="form-control" value="{{ Auth::user()->id }}" hidden>
               <div class="col-md-6">
                 <label for="inputName5" class="form-label">Date de la soutenance</label>
                 <input type="date" class="form-control" name="date">
@@ -42,26 +43,38 @@
               </div>
 
               <div class="col-md-6">
-                <label for="inputPassword5" class="form-label">Jury</label>
-                <input type="text" class="form-control" name="juries_id">
+                <label for="" class="form-label">Choisir un jury</label>
+                <select class="form-control"   name="juries_id">
+                    <option>Selectionner un president de jury</option>
+                    @foreach ($juries as $jur)
+                    <option value="{{$jur->id}}">{{$jur->libelle}} </option>
+                @endforeach
+                </select>
               </div>
 
 
 
-              <div class="col-6">
-                <label for="inputAddress5" class="form-label">Salle</label>
-                <input type="text" class="form-control" name="salles_id">
+              <div class="col-md-6">
+                <label for="" class="form-label">Choisir une salle</label>
+                <select class="form-control"   name="salles_id">
+                    <option>Selectionner une salle</option>
+                    @foreach ($salles as $salle)
+                    <option value="{{$salle->id}}">{{$salle->nom_salle}} </option>
+                @endforeach
+                </select>
               </div>
 
-              <div class="col-6">
-                <label for="inputAddress5" class="form-label">Demande</label>
-                <input type="text" class="form-control" name="demandes_id">
+              <div class="col-md-6">
+                <label for="" class="form-label">Choisir une demande</label>
+                <select class="form-control"   name="juries_id">
+                    <option>Selectionner une demande</option>
+                    @foreach ($demandes as $demande)
+                    <option value="{{$demande->id}}">{{$demande->libelle}}</option>
+                @endforeach
+                </select>
               </div>
 
-              <div class="col-6">
-                <label for="inputAddress5" class="form-label">User</label>
-                <input type="text" class="form-control" name="user_id">
-              </div>
+          
 
               <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enregistrer</button>

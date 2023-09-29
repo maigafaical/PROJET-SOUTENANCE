@@ -14,30 +14,38 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nom et Prénom</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Date de Naissance</th>
-                  <th scope="col">Sexe </th>
-                  <th scope="col">Téléphone de l'étudiant </th>
-                  <th scope="col">Téléphone des parents </th>
-                  <th scope="col">Filière </th>
-                  <th scope="col">Niveau d'étude </th>
+                  <th scope="col">Titre</th>
+                  <th scope="col">Resumé</th>
+                  <th scope="col">Statut</th>
+                  <th scope="col">Date </th>
+                  <th scope="col">Période </th>
+                  <th scope="col">Etudiant </th>
+                  
+                  <th scope="col">Actions </th>
                 </tr>
               </thead>
               <tbody>
+                @foreach ( $demandes as $demande )
                 <tr>
-                  <th scope="row"></th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ $demande->id }}</td>
+                  <td>{{ $demande->titre }}</td>
+                  <td>{{ $demande->resume }}</td>
+                  <td>{{ $demande->statut }}</td>
+                  <td>{{ $demande->date }}</td>
+                  <td>{{ $demande->periode }}</td>
+                  <td>{{ $demande->etudiants_id }}</td>
+                 
+
+                  <td>
+                    <a href="{{ route('demandes.edit', $demande->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                    <a href="{{ url('supprimer-demande/' .$demande->id)}}"> <i class="bi bi-trash"></i></a>
+                  </td>
                 </tr>
+                @endforeach
+
 
               </tbody>
+
             </table>
             <!-- End Table with stripped rows -->
 

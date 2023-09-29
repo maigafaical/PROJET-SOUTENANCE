@@ -5,7 +5,7 @@
       <li class="nav-item">
         <a class="nav-link " href="dashboard">
           <i class="bi bi-grid"></i>
-          <span>Tableau de bord</span>
+          <span>MENU</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
