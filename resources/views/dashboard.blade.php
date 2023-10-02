@@ -44,7 +44,7 @@
                     <i class="bi bi-people"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>124</h6>
+                    <h6>{{$etudiants->count()}}</h6>
                     <span class="text-danger small pt-1 fw-bold">10%</span> <span class="text-muted small pt-2 ps-1">Taux de croissance</span>
 
                   </div>
@@ -74,14 +74,14 @@
               </div>
 
               <div class="card-body">
-                <h5 class="card-title">EEnseignants <span>| Cette année</span></h5>
+                <h5 class="card-title">Demandes <span>| Cette année</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bi bi-people"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>44</h6>
+                    <h6>{{$demandes->count()}}</h6>
                     <span class="text-danger small pt-1 fw-bold">46%</span> <span class="text-muted small pt-2 ps-1">Taux de croissance</span>
 
                   </div>
@@ -111,14 +111,14 @@
               </div>
 
               <div class="card-body">
-                <h5 class="card-title">Demandes <span>| Cette année</span></h5>
+                <h5 class="card-title">Enseignants <span>| Cette année</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bi bi-people"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>14</h6>
+                    <h6>{{$enseignants->count()}}</h6>
                     <span class="text-danger small pt-1 fw-bold">22%</span> <span class="text-muted small pt-2 ps-1">Taux de croissance</span>
 
                   </div>

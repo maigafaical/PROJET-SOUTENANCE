@@ -9,14 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class etudiant extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'nom',
-        'prenom',
-        'date_naissance',
-        'sexe',
-        'phone_etudiant',
-        'filiere',
-        'niveau',
+    protected $guarded = [
+       
     ];  
     
     function demande(){

@@ -14,8 +14,6 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Titre</th>
-                  <th scope="col">Resumé</th>
                   <th scope="col">Statut</th>
                   <th scope="col">Date </th>
                   <th scope="col">Période </th>
@@ -28,8 +26,6 @@
                 @foreach ( $demandes as $demande )
                 <tr>
                   <td>{{ $demande->id }}</td>
-                  <td>{{ $demande->titre }}</td>
-                  <td>{{ $demande->resume }}</td>
                   <td>{{ $demande->statut }}</td>
                   <td>{{ $demande->date }}</td>
                   <td>{{ $demande->periode }}</td>
@@ -39,17 +35,15 @@
                   <td>
                     @if (Auth::user()->roles_id == '1')
                     @elseif (Auth::user()->roles_id == '3')
-                    <a href="{{ route('demandes.edit', $demande->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                    <a href="{{ route('demandes.edit', $demande->id) }}" > <i class="btn btn-info">Approuver</i></a>
                    
 
                     @else
 
-                    @endif
-
-                   
+                    @endif 
 
                     @if (Auth::user()->roles_id == '3')
-                    <a href="{{ url('supprimer-demande/' .$demande->id)}}"> <i class="bi bi-trash"></i></a>
+                    <a href="{{ url('supprimer-demande/' .$demande->id)}}"> <i class="btn btn-danger">Rejetter</i></a>
 
                     @else
 

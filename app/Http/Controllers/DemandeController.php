@@ -36,9 +36,7 @@ class DemandeController extends Controller
     {
 
         demande::create([
-            'libelle'=> $request-> libelle,
-            'titre'=> $request-> titre,
-            'resume'=> $request-> resume,
+            'code'=> $request-> code,
             'statut'=> $request-> statut,
             'date'=> $request-> date,
             'periode'=> $request-> periode,
@@ -76,7 +74,7 @@ class DemandeController extends Controller
      */
     public function edit(string $id)
     {
-        $etudiants = etudiant::find($id);
+        $etudiants = etudiant::all();
         $demandes = demande::find($id);
         return view('Demandes.modifier',compact('demandes', 'etudiants'));
     }
@@ -89,13 +87,8 @@ class DemandeController extends Controller
         $demandes = demande::find($id);
 
         $demandes->update([
-            'libelle' => $request->libelle,
-            'titre' => $request->titre,
-            'resume' => $request->resume,
             'statut' => $request->statut,
-            'date' => $request->date,
-            'periode' => $request->periode,
-            'etudiants_id' => $request->etudiants_id,
+            'motif' => $request->motif,
         ]);
 
         return redirect()->route('demandes.index')->with('status', 'Une demande a  été modifié avec succes.');
