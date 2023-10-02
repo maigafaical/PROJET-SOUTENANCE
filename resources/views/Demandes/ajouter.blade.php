@@ -28,20 +28,11 @@
               <form class="row g-3" method="POST" action="{{route('demandes.store')}}">
                 @csrf
               <div class="col-md-12">
-                <label for="inputName5" class="form-label">Libelle</label>
-                <input type="text" class="form-control" name="libelle">
+                <label for="inputName5" class="form-label">Code de la demande</label>
+                <input type="text" class="form-control" name="code">
               </div>
 
-              <div class="col-md-6">
-                <label for="inputEmail5" class="form-label">Titre</label>
-                <input type="text" class="form-control" name="titre">
-              </div>
-
-              <div class="col-md-6">
-                <label for="inputPassword5" class="form-label">Resumé</label>
-                <input type="text" class="form-control" name="resume">
-              </div>
-
+              
               <div class="row">
               <div class="col-md-6">
                 
@@ -85,6 +76,8 @@
                 </select>
 
             </div>
+
+            
 
               <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enregistrer</button>

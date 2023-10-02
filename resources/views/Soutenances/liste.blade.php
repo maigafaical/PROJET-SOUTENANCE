@@ -25,11 +25,10 @@
                   <th scope="col">#</th>
                   <th scope="col">Date</th>
                   <th scope="col">Heure</th>
-                  <th scope="col">Statut</th>
+                  <th scope="col">Theme</th>
                   <th scope="col">Juries</th>
                   <th scope="col">Salles</th>
                   <th scope="col">Demandes</th>
-                  <th scope="col">Users</th>
                   <th scope="col">Actions </th>
                 </tr>
               </thead>
@@ -40,14 +39,13 @@
                   <td>{{ $sout->id }}</td>
                   <td>{{ $sout->date }}</td>
                   <td>{{ $sout->heure }}</td>
-                  <td>{{ $sout->statut }}</td>
-                  <td>{{ $sout->juries }}</td>
-                  <td>{{ $sout->salle }}</td>
-                  <td>{{ $sout->demandes }}</td>
-                  <td>{{ $sout->users }}</td>
+                  <td>{{ $sout->theme }}</td>
+                  <td>{{ $sout->juries_id }}</td>
+                  <td>{{ $sout->salles_id }}</td>
+                  <td>{{ $sout->demandes_id }}</td>
                   <td>
-                    <a href="#" class="btn btn-info">Modifier</a>
-                    <a href="#" class="btn btn-danger">supprimer</a>
+                    <a href="{{ route('soutenances.edit', $sout->id) }}" > <i class="bi bi-pencil-square"></i></a>
+                    <a href="{{ url('supprimer-soutenance/' .$sout->id) }}"> <i class="bi bi-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

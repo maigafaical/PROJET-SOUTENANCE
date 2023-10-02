@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\demande;
 use Illuminate\Http\Request;
 use App\Models\soutenance;
 use App\Models\jury;
+use App\Models\salle;
 
 class SoutenanceController extends Controller
 {
@@ -23,7 +25,10 @@ class SoutenanceController extends Controller
      */
     public function create()
     {
-        return view('Soutenances.ajouter');
+        $demandes = demande::where('statut', '=', 'accepté')->get();
+        $juries = jury::all();
+        $salles = salle::all();
+        return view('Soutenances.ajouter', compact('juries','salles', 'demandes'));
     }
 
     /**
@@ -31,26 +36,22 @@ class SoutenanceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        // $request->validate([
 
-            'date'=>'required',
-            'heure'=>'required',
-            'statut'=>'required',
-            'juries'=>'required',
-            'salles'=>'required',
-            'users'=>'required',
-
-
-        ]);
-
+        //     'date'=>'required',
+        //     'heure'=>'required',
+        //     
+        //     'juries_id'=>'required',
+        //     'salles_id'=>'required',
+        //     'demandes_id'=>'required',
+        // ]);
         $soutenances = new soutenance();
         $soutenances->date = $request->date;
         $soutenances->heure = $request->heure;
-        $soutenances->statut = $request->statut ;
-        $soutenances->juries= $request->juries ;
-        $soutenances->salles = $request->salles;
-        $soutenances->users= $request->users;
-
+        $soutenances->theme = $request->theme;
+        $soutenances->juries_id= $request->juries_id ;
+        $soutenances->salles_id = $request->salles_id;
+        $soutenances->demandes_id = $request->demandes_id;
         $soutenances->save();
 
         return redirect('Soutenances.liste')->with('status', 'Soutenance a  été ajouté avec succes.');

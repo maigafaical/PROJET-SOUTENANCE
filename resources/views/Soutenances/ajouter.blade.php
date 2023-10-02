@@ -26,6 +26,7 @@
                 <h5 class="card-title">Ajout d'une soutenance </h5>
 
               <form method="POST" action="{{route('soutenances.store')}}" class="row g-3">
+                @csrf
                 <input type="text" name="users_id" class="form-control" value="{{ Auth::user()->id }}" hidden>
               <div class="col-md-6">
                 <label for="inputName5" class="form-label">Date de la soutenance</label>
@@ -38,14 +39,14 @@
               </div>
 
               <div class="col-md-6">
-                <label for="inputPassword5" class="form-label">Statut de la demande</label>
-                <input type="text" class="form-control" name="statut">
+                <label for="inputPassword5" class="form-label">Theme</label>
+                <input type="text" class="form-control" name="theme">
               </div>
 
               <div class="col-md-6">
                 <label for="" class="form-label">Choisir un jury</label>
                 <select class="form-control"   name="juries_id">
-                    <option>Selectionner un president de jury</option>
+                    <option>Selectionner un  jury</option>
                     @foreach ($juries as $jur)
                     <option value="{{$jur->id}}">{{$jur->libelle}} </option>
                 @endforeach
@@ -66,10 +67,10 @@
 
               <div class="col-md-6">
                 <label for="" class="form-label">Choisir une demande</label>
-                <select class="form-control"   name="juries_id">
+                <select class="form-control"   name="demandes_id">
                     <option>Selectionner une demande</option>
                     @foreach ($demandes as $demande)
-                    <option value="{{$demande->id}}">{{$demande->libelle}}</option>
+                    <option value="{{$demande->id}}">{{$demande->code}}</option>
                 @endforeach
                 </select>
               </div>

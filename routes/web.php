@@ -31,6 +31,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+
 Route::resource('etudiants', EtudiantController::class);
 Route::get('supprimer-etudiant/{id}', [EtudiantController::class, 'destroy']);
 
